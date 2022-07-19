@@ -23,14 +23,14 @@ const JOBS_QUERY = gql`
 
 
 function App() {
-  const jobsQuery = useQuery(JOBS_QUERY); 
+  const { loading, error, data } = useQuery(JOBS_QUERY); 
 
-  if (jobsQuery.error) return <h1>Error: {jobsQuery.error} :( </h1>;
+  if (error) return <h1>Error: {error} :( </h1>;
 
-  jobsQuery.loading ? <h1>Loading...</h1> : (
+  loading ? <h1>Loading...</h1> : (
     <div className="app">
       <h1>My first Apollo app 🚀</h1>
-      {jobsQuery.data.jobs.map((item, index) => (
+      {data.jobs.map((item, index) => (
         <a href={item.applyUrl} className='job' key={index}>
           <div className='job-desc'>
             <img src='https://logo.clearbit.com/newstorycharity.org?size=200' alt='logo'/>
