@@ -27,14 +27,14 @@ function App() {
 
   if (error) return <h1>Error: {error} :( </h1>;
 
-  if (loading) return <h1>Loading... 🚀</h1>;
-  return (
+  loading ? <h1>Loading... 🚀</h1> : (
     <div className="app">
       <h1 style={{ backgroundColor: 'beige' }}>My first Apollo app 🚀</h1>
+      <div className='feature-tag'>FEATURED</div>
       {data.jobs.map((item, index) => (
         <a href={item.applyUrl} className='job' key={index}>
           <div className='job-desc'>
-            <img src='https://logo.clearbit.com/newstorycharity.org?size=200' alt='logo'/>
+            <img src='https://logo.clearbit.com/www.mojotech.com?size=200' alt='logo'/>
             <div className='job-title'>
               <h2>{item.title}</h2>
               <div className='company'>{item.company.name}</div>
