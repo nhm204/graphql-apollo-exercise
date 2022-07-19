@@ -27,9 +27,10 @@ function App() {
 
   if (error) return <h1>Error: {error} :( </h1>;
 
-  loading ? <h1>Loading...</h1> : (
+  if (loading) return <h1>Loading... 🚀</h1>;
+  return (
     <div className="app">
-      <h1>My first Apollo app 🚀</h1>
+      <h1 style={{ backgroundColor: 'beige' }}>My first Apollo app 🚀</h1>
       {data.jobs.map((item, index) => (
         <a href={item.applyUrl} className='job' key={index}>
           <div className='job-desc'>
